@@ -10,6 +10,3 @@ def study_schedule(permanence_period, target_time):
         return counter
     else:
         return None
-
-
-mock = [(2, 2), (1, 2), (2, 3), (1, 5), (4, 5), (4, 5), (6, 7)]
