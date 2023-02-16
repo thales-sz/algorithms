@@ -4,7 +4,7 @@ def is_anagram(first_string, second_string):
 
     if not first_string or not second_string:
         return (first_sorted, second_sorted, False)
-    if first_string == second_string:
+    if first_sorted == second_sorted:
         return (first_sorted, second_sorted, True)
     else:
         return (first_sorted, second_sorted, False)
