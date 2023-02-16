@@ -12,6 +12,14 @@ RESPONSE_ZERO = "ADNIL É ARTEYP"
 
 
 def test_encrypt_message():
+    with pytest.raises(TypeError) as error:
+        encrypt_message(INVALID_TYPE_MESSAGE, ODD_KEY)
+    assert str(error.value) == "tipo inválido para message"
+
+    with pytest.raises(TypeError) as error:
+        encrypt_message(MESSAGE, INVALID_TYPE_KEY)
+    assert str(error.value) == "tipo inválido para key"
+
     response = encrypt_message(MESSAGE, ODD_KEY)
     assert response == RESPONSE_ODD
 
@@ -20,11 +28,3 @@ def test_encrypt_message():
 
     response = encrypt_message(MESSAGE, 0)
     assert response == RESPONSE_ZERO
-
-    with pytest.raises(TypeError) as error:
-        encrypt_message(INVALID_TYPE_MESSAGE, ODD_KEY)
-        assert str(error.value) == "tipo inválido para message"
-
-    with pytest.raises(TypeError) as error:
-        encrypt_message(MESSAGE, INVALID_TYPE_KEY)
-        assert str(error.value) == "tipo inválido para key"
